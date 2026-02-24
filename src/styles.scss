@@ -1,1 +1,244 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  min-height: 100%;
+}
+
+:root {
+  --app-bg: radial-gradient(1200px 600px at 20% 0%, rgba(13, 110, 253, 0.12), transparent 60%),
+    radial-gradient(900px 500px at 100% 30%, rgba(32, 201, 151, 0.10), transparent 55%);
+  --app-bg-color: transparent;
+  --app-hero-overlay: linear-gradient(135deg, rgba(13, 110, 253, 0.18), rgba(111, 66, 193, 0.14), rgba(32, 201, 151, 0.10));
+  --app-card-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.03);
+  --app-card-shadow-hover: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.06);
+  --app-navbar-bg: rgba(255, 255, 255, 0.66);
+  --app-navbar-border: rgba(0, 0, 0, 0.06);
+  --app-navbar-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.03);
+  --app-navbar-blur: 12px;
+  --app-navbar-fg: rgba(17, 24, 39, 0.92);
+  --app-navbar-link: rgba(17, 24, 39, 0.82);
+  --app-navbar-link-hover: rgba(17, 24, 39, 0.98);
+  --app-navbar-btn-border: rgba(17, 24, 39, 0.22);
+  --app-timeline-line: rgba(0, 0, 0, 0.14);
+  --app-timeline-dot: rgba(13, 110, 253, 0.92);
+  --app-timeline-dot-border: rgba(255, 255, 255, 0.85);
+  --app-timeline-panel-bg: rgba(255, 255, 255, 0.62);
+  --app-timeline-panel-border: rgba(0, 0, 0, 0.08);
+  --app-timeline-panel-glow: rgba(13, 110, 253, 0.16);
+}
+
+html[data-theme='dark'] {
+  --app-bg-color: #0b1020;
+  --app-bg: radial-gradient(1200px 650px at 15% 0%, rgba(111, 66, 193, 0.30), transparent 60%),
+    radial-gradient(900px 520px at 100% 30%, rgba(13, 110, 253, 0.22), transparent 55%),
+    radial-gradient(900px 520px at 35% 100%, rgba(32, 201, 151, 0.18), transparent 60%);
+  --app-hero-overlay: linear-gradient(135deg, rgba(13, 110, 253, 0.22), rgba(111, 66, 193, 0.26), rgba(32, 201, 151, 0.12));
+  --app-card-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.15);
+  --app-card-shadow-hover: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+  --app-navbar-bg: rgba(11, 16, 32, 0.55);
+  --app-navbar-border: rgba(255, 255, 255, 0.10);
+  --app-navbar-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.15);
+  --app-navbar-blur: 14px;
+  --app-navbar-fg: rgba(255, 255, 255, 0.92);
+  --app-navbar-link: rgba(255, 255, 255, 0.82);
+  --app-navbar-link-hover: rgba(255, 255, 255, 0.98);
+  --app-navbar-btn-border: rgba(255, 255, 255, 0.24);
+  --app-timeline-line: rgba(255, 255, 255, 0.18);
+  --app-timeline-dot: rgba(32, 201, 151, 0.92);
+  --app-timeline-dot-border: rgba(11, 16, 32, 0.85);
+  --app-timeline-panel-bg: rgba(11, 16, 32, 0.42);
+  --app-timeline-panel-border: rgba(255, 255, 255, 0.12);
+  --app-timeline-panel-glow: rgba(32, 201, 151, 0.16);
+}
+
+body {
+  background-color: var(--app-bg-color);
+  background-image: var(--app-bg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.app-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background-color: var(--app-navbar-bg);
+  border-bottom: 1px solid var(--app-navbar-border);
+  box-shadow: var(--app-navbar-shadow);
+  -webkit-backdrop-filter: blur(var(--app-navbar-blur));
+  backdrop-filter: blur(var(--app-navbar-blur));
+  color: var(--app-navbar-fg);
+}
+
+.app-navbar .navbar-brand {
+  color: var(--app-navbar-fg);
+}
+
+.app-navbar .navbar-brand:hover {
+  color: var(--app-navbar-link-hover);
+}
+
+.app-navbar .btn.btn-link {
+  color: var(--app-navbar-link);
+  text-decoration: none;
+}
+
+.app-navbar .btn.btn-link:hover,
+.app-navbar .btn.btn-link:focus-visible {
+  color: var(--app-navbar-link-hover);
+}
+
+.app-navbar .btn-outline-secondary {
+  --bs-btn-color: var(--app-navbar-fg);
+  --bs-btn-border-color: var(--app-navbar-btn-border);
+  --bs-btn-hover-color: var(--app-navbar-fg);
+  --bs-btn-hover-bg: rgba(255, 255, 255, 0.10);
+  --bs-btn-hover-border-color: var(--app-navbar-btn-border);
+  --bs-btn-active-bg: rgba(255, 255, 255, 0.14);
+  --bs-btn-active-border-color: var(--app-navbar-btn-border);
+}
+
+.app-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.app-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--app-hero-overlay);
+  pointer-events: none;
+}
+
+.app-hero > * {
+  position: relative;
+}
+
+.card.app-card {
+  border: 0;
+  box-shadow: var(--app-card-shadow);
+}
+
+.card.app-card:hover {
+  transform: translateY(-2px);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  box-shadow: var(--app-card-shadow-hover);
+}
+
+.app-section-title {
+  letter-spacing: -0.02em;
+}
+
+.app-timeline {
+  position: relative;
+}
+
+.app-timeline::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--app-timeline-line);
+}
+
+.app-timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  column-gap: 0.75rem;
+}
+
+.app-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 1.25rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--app-timeline-dot);
+  border: 3px solid var(--app-timeline-dot-border);
+  box-shadow: 0 0.125rem 0.3rem rgba(0, 0, 0, 0.08);
+}
+
+.app-timeline-item.is-current::before {
+  width: 20px;
+  height: 20px;
+  left: 4px;
+  box-shadow: 0 0.25rem 0.4rem rgba(0, 0, 0, 0.10);
+}
+
+.app-timeline-panel {
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background: var(--app-timeline-panel-bg);
+  border: 1px solid var(--app-timeline-panel-border);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.04);
+}
+
+.app-timeline-panel:hover {
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.08), 0 0 0 2px var(--app-timeline-panel-glow);
+  transition: box-shadow 160ms ease;
+}
+
+.app-timeline-panel-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.app-timeline-panel ul {
+  padding-left: 1.1rem;
+}
+
+.app-timeline-panel li {
+  margin-bottom: 0.25rem;
+}
+
+.app-skill-pill {
+  border-radius: 999px;
+  padding: 0.45em 0.7em;
+}
+
+.app-details summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.app-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.app-details summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.app-details summary::after {
+  content: '▾';
+  opacity: 0.7;
+  font-size: 0.9em;
+}
+
+.app-details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 768px) {
+  .app-timeline-panel-header {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}

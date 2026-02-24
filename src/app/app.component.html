@@ -7,9 +7,23 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+<nav class="navbar navbar-expand-lg app-navbar">
   <div class="container">
-    <a class="navbar-brand fw-semibold" href="#">Portfolio</a>
+    <a class="navbar-brand fw-semibold" routerLink="/">Ibai</a>
+    <div class="d-flex align-items-center gap-2">
+      <a class="btn btn-link" routerLink="/proyectos" routerLinkActive="fw-semibold" ariaCurrentWhenActive="page">
+        Proyectos
+      </a>
+      <a class="btn btn-link" routerLink="/experiencia" routerLinkActive="fw-semibold" ariaCurrentWhenActive="page">
+        Experiencia
+      </a>
+      <a class="btn btn-link" routerLink="/sobre-mi" routerLinkActive="fw-semibold" ariaCurrentWhenActive="page">
+        Sobre mí
+      </a>
+      <a class="btn btn-link" routerLink="/contacto" routerLinkActive="fw-semibold" ariaCurrentWhenActive="page">
+        Contacto
+      </a>
+    </div>
     <div class="d-flex align-items-center gap-2">
       <button type="button" class="btn btn-outline-secondary btn-sm" (click)="toggleTheme()">
         {{ theme === 'dark' ? 'Modo claro' : 'Modo oscuro' }}
