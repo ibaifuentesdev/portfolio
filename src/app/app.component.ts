@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ThemeName, ThemeService } from './theme.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,15 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'portfolio';
+
+  protected theme: ThemeName;
+
+  public constructor(private readonly themeService: ThemeService) {
+    this.theme = this.themeService.getInitialTheme();
+    this.themeService.applyTheme(this.theme);
+  }
+
+  protected toggleTheme(): void {
+    this.theme = this.themeService.toggleTheme(this.theme);
+  }
 }

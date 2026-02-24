@@ -32,7 +32,17 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/theme-light.scss",
+                "bundleName": "theme-light",
+                "inject": false
+              },
+              {
+                "input": "src/theme-dark.scss",
+                "bundleName": "theme-dark",
+                "inject": false
+              }
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -96,12 +106,25 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/theme-light.scss",
+                "bundleName": "theme-light",
+                "inject": false
+              },
+              {
+                "input": "src/theme-dark.scss",
+                "bundleName": "theme-dark",
+                "inject": false
+              }
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "dce1d7f0-d9ec-4879-831c-3fc3dcb51508"
   }
 }
