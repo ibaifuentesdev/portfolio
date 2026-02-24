@@ -137,7 +137,7 @@ interface StatItem {
         </div>
       </section>
 
-      <!-- Por qué trabajar conmigo -->
+      <!-- Por qué trabajar conmigo
       <section class="mb-5">
         <div class="card app-card p-4">
           <div class="row align-items-center g-4">
@@ -192,7 +192,7 @@ interface StatItem {
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <!-- Proyectos destacados teaser -->
       <section class="mb-4">

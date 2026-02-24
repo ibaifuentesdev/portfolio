@@ -255,37 +255,20 @@ export class ExperienceComponent implements OnInit {
     },
     {
       isCurrent: false,
-      title: 'Desarrollador de PHP',
+      title: 'Desarrollador Fullstack & SysAdmin',
       company: 'EXENTIA SOLUTIONS SL',
       employmentType: 'Jornada completa',
       location: 'Bilbao, País Vasco, España · Presencial',
       period: 'jul. 2024 - ago. 2024',
       startDate: '2024-07-01',
       endDate: '2024-08-31',
-      description: 'Desarrollo de aplicaciones web a medida para clientes del sector industrial, cuidando UX, responsive y conexión eficiente con bases de datos.',
+      description: 'Desarrollo de aplicaciones web a medida y gestión de infraestructura IT para clientes del sector industrial, cubriendo tanto el desarrollo como la administración de sistemas.',
       highlights: [
-        'Desarrollo de módulos personalizados en PHP con arquitectura MVC',
-        'Implementación de interfaces responsive con Bootstrap 5 y Sass',
-        'Optimización de queries SQL Server y MySQL para reportes de gestión'
+        'Desarrollo de módulos personalizados en PHP con arquitectura MVC y optimización de bases de datos',
+        'Administración de entornos virtualizados VMware ESXi/vSphere y políticas de backup automatizadas',
+        'Implementación de interfaces responsive con Bootstrap 5 y gestión de dominios Windows Server'
       ],
-      skills: ['PHP', 'Bootstrap', 'HTML5', 'CSS', 'JavaScript', 'Microsoft SQL Server', 'MySQL', 'jQuery']
-    },
-    {
-      isCurrent: false,
-      title: 'Administrador de sistemas',
-      company: 'EXENTIA SOLUTIONS SL',
-      employmentType: 'Jornada completa',
-      location: 'Bilbao, País Vasco, España · Presencial',
-      period: 'jul. 2024 - ago. 2024',
-      startDate: '2024-07-01',
-      endDate: '2024-08-31',
-      description: 'Gestión de infraestructura IT para clientes empresariales: virtualización, dominios, red y backups programados garantizando alta disponibilidad.',
-      highlights: [
-        'Administración de entornos virtualizados VMware ESXi y vSphere',
-        'Implementación de políticas de backup automatizadas con scripts GHETTO',
-        'Configuración y mantenimiento de dominios Windows Server y Active Directory'
-      ],
-      skills: ['VMware ESXi', 'VMware vSphere', 'Linux', 'Windows Server', 'Bash', 'SSH', 'PowerShell', 'Backups', 'Administración de servidores']
+      skills: ['PHP', 'Bootstrap', 'HTML5', 'CSS', 'JavaScript', 'Microsoft SQL Server', 'MySQL', 'jQuery', 'VMware ESXi', 'VMware vSphere', 'Linux', 'Windows Server', 'Bash', 'SSH', 'PowerShell', 'Backups', 'Administración de servidores']
     },
     {
       isCurrent: false,
