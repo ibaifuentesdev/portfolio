@@ -1,5 +1,12 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
+# Editor configuration files
+.editorconfig
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/extensions.json
+
 # Compiled output
 /dist
 /tmp
