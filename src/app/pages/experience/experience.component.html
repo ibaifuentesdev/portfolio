@@ -23,7 +23,7 @@
       </header>
 
       <!-- Filtros integrados -->
-      <section class="mb-5 p-4 rounded-4" style="background: rgba(var(--bs-body-bg-rgb), 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(var(--bs-border-color-rgb), 0.2);" aria-label="Filtros de experiencia">
+      <section class="mb-5 p-4 rounded-4" aria-label="Filtros de experiencia">
         <div class="d-flex flex-wrap align-items-center gap-3">
           <div class="d-flex align-items-center gap-2 text-body-secondary flex-shrink-0">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
@@ -72,65 +72,70 @@
       </section>
 
       <!-- Timeline de experiencia -->
-      <section class="app-timeline vstack gap-4" aria-label="Timeline de experiencia profesional">
-        @for (item of filteredExperience; track item.title + item.company + item.period) {
-          <article class="app-timeline-item" [class.is-current]="item.isCurrent" [attr.data-employment-type]="item.employmentType">
-            <div class="app-timeline-icon" [style.background-color]="item.iconColor">
-              <span>{{ item.icon }}</span>
-            </div>
-            <div class="app-timeline-content">
-              <div class="app-timeline-panel">
-                <div class="d-flex flex-column flex-md-row justify-content-between gap-2 mb-3">
-                  <div class="flex-grow-1">
-                    <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
-                      <h2 class="h4 mb-0">{{ item.title }}</h2>
-                      @if (item.isCurrent) {
-                        <span class="badge bg-success"><span class="spinner-grow spinner-grow-sm me-1" role="status" aria-hidden="true"></span>Actual</span>
-                      }
-                    </div>
-                    <div class="d-flex flex-wrap align-items-center gap-2 text-body-secondary">
-                      <span class="fw-semibold fs-5 text-primary">{{ item.company }}</span>
-                      @if (item.employmentType) {
-                        <span class="badge text-bg-light border">{{ item.employmentType }}</span>
-                      }
-                    </div>
-                    @if (item.location) {
-                      <div class="mt-1 text-body-secondary small"><span>📍 {{ item.location }}</span></div>
-                    }
-                  </div>
-                  <time class="app-timeline-date" [attr.datetime]="item.startDate">
-                    <span class="badge text-bg-dark fs-6">{{ item.period }}</span>
-                  </time>
+      <section class="experience-timeline" aria-label="Timeline de experiencia profesional">
+        <div class="timeline">
+          @for (item of filteredExperience; track item.title + item.company + item.period) {
+            <div class="timeline-item">
+              <div class="timeline-marker">
+                <div class="timeline-dot">
+                  <span class="timeline-initials">{{ getCompanyInitials(item.company) }}</span>
                 </div>
-                
-                <p class="lead text-body-secondary mb-3">{{ item.description }}</p>
-                
-                @if (item.highlights.length > 0) {
-                  <div class="mb-3">
-                    <h3 class="h6 text-uppercase text-body-secondary mb-2 fw-semibold">🎯 Logros principales</h3>
-                    <ul class="list-unstyled mb-0">
-                      @for (h of item.highlights; track h) {
-                        <li class="d-flex gap-2 mb-2"><span class="text-success flex-shrink-0">✓</span><span>{{ h }}</span></li>
+              </div>
+              
+              <div class="timeline-content">
+                <div class="timeline-card app-hero p-4">
+                  <div class="d-flex flex-column flex-md-row justify-content-between gap-2 mb-3">
+                    <div class="flex-grow-1">
+                      <div class="d-flex flex-wrap align-items-center gap-2 mb-2">
+                        <h2 class="h4 mb-0">{{ item.title }}</h2>
+                        @if (item.isCurrent) {
+                          <span class="badge bg-success"><span class="spinner-grow spinner-grow-sm me-1" role="status" aria-hidden="true"></span>Actual</span>
+                        }
+                      </div>
+                      <div class="d-flex flex-wrap align-items-center gap-2 text-body-secondary">
+                        <span class="fw-semibold fs-5 text-primary">{{ item.company }}</span>
+                        @if (item.employmentType) {
+                          <span class="badge text-bg-light border">{{ item.employmentType }}</span>
+                        }
+                      </div>
+                      @if (item.location) {
+                        <div class="mt-1 text-body-secondary"><span>📍 {{ item.location }}</span></div>
                       }
-                    </ul>
+                    </div>
+                    <time class="app-timeline-date" [attr.datetime]="item.startDate">
+                      <span class="badge text-bg-dark fs-6">{{ item.period }}</span>
+                    </time>
                   </div>
-                }
-                
-                <details class="app-details" [attr.open]="selectedSkill ? true : null">
-                  <summary class="d-flex align-items-center gap-2 text-body-secondary py-2 border-top">
-                    <span class="fw-semibold">🛠️ Tecnologías utilizadas</span>
-                    <span class="badge text-bg-secondary">{{ item.skills.length }}</span>
-                  </summary>
-                  <div class="d-flex flex-wrap gap-2 pt-3">
-                    @for (skill of item.skills; track skill) {
-                      <span class="badge app-skill-pill" [class.text-bg-primary]="selectedSkill === skill" [class.text-bg-secondary]="selectedSkill !== skill">{{ skill }}</span>
-                    }
-                  </div>
-                </details>
+                  
+                  <p class="lead text-body-secondary mb-3">{{ item.description }}</p>
+                  
+                  @if (item.highlights.length > 0) {
+                    <div class="mb-3">
+                      <h3 class="h6 text-uppercase text-body-secondary mb-3 fw-semibold">🎯 Logros principales</h3>
+                      <ul class="list-unstyled mb-0">
+                        @for (h of item.highlights; track h) {
+                          <li class="d-flex gap-2 mb-2"><span class="text-success flex-shrink-0">✓</span><span>{{ h }}</span></li>
+                        }
+                      </ul>
+                    </div>
+                  }
+                  
+                  <details class="app-details" [attr.open]="selectedSkill ? true : null">
+                    <summary class="d-flex align-items-center gap-2 text-body-secondary py-2 border-top">
+                      <span class="fw-semibold">🛠️ Tecnologías utilizadas</span>
+                      <span class="badge text-bg-secondary">{{ item.skills.length }}</span>
+                    </summary>
+                    <div class="d-flex flex-wrap gap-2 pt-3">
+                      @for (skill of item.skills; track skill) {
+                        <span class="badge app-skill-pill" [class.text-bg-primary]="selectedSkill === skill" [class.text-bg-secondary]="selectedSkill !== skill">{{ skill }}</span>
+                      }
+                    </div>
+                  </details>
+                </div>
               </div>
             </div>
-          </article>
-        }
+          }
+        </div>
       </section>
 
       <!-- CTA final -->

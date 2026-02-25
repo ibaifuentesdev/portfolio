@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ServiceItem, StatItem } from '../../shared/models';
+import { ExperienceTimelineComponent } from '../../shared/components/experience-timeline/experience-timeline.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ExperienceTimelineComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

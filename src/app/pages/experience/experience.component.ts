@@ -2,7 +2,7 @@ import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformServer, DOCUMENT } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
 import { ExperienceItem } from '../../shared/models';
-import { EXPERIENCE_DATA } from '../../shared/services/experience-data.service';
+import { ExperienceService } from '../../shared/services/experience.service';
 
 interface JsonLdJobPosting {
   readonly '@context': string;
@@ -35,16 +35,19 @@ interface JsonLdJobPosting {
 })
 export class ExperienceComponent implements OnInit {
   protected selectedSkill: string | null = null;
-  protected readonly experience: readonly ExperienceItem[] = EXPERIENCE_DATA;
+  protected experience: readonly ExperienceItem[] = [];
 
   constructor(
     private readonly titleService: Title,
     private readonly metaService: Meta,
+    private readonly experienceService: ExperienceService,
     @Inject(PLATFORM_ID) private readonly platformId: object,
     @Inject(DOCUMENT) private readonly document: Document
   ) {}
 
   ngOnInit(): void {
+    // Get experience data from service
+    this.experience = this.experienceService.getExperienceData();
     // SEO: Meta tags
     this.titleService.setTitle('Experiencia Profesional | Ibai Fuentes - Desarrollador Fullstack');
     
@@ -99,6 +102,15 @@ export class ExperienceComponent implements OnInit {
 
   protected clearFilter(): void {
     this.selectedSkill = null;
+  }
+
+  protected getCompanyInitials(company: string): string {
+    return company
+      .split(' ')
+      .map(word => word.charAt(0))
+      .join('')
+      .substring(0, 2)
+      .toUpperCase();
   }
 
   private injectJsonLd(): void {
