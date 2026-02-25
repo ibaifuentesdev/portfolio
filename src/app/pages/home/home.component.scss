@@ -1,0 +1,25 @@
+/* Home component specific styles */
+.home-hero {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(111, 66, 193, 0.05));
+  border-radius: 1rem;
+}
+
+.home-gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Social buttons styling */
+.btn-link[href*="linkedin"],
+.btn-link[href*="github"] {
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .home-hero {
+    padding: 3rem 4rem;
+  }
+}

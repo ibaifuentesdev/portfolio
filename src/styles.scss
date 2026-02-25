@@ -1,5 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Global button alignment for all themes */
+.btn-outline-primary {
+  text-align: center !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+  line-height: 1.5 !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  text-align: center !important;
+}
+
+/* Thin scrollbar styles */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
 html,
 body {
   min-height: 100%;

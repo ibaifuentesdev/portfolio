@@ -1,16 +1,9 @@
-import { Component } from '@angular/core';
-
-export interface SkillGroup {
-  readonly title: string;
-  readonly items: readonly string[];
-}
-
-@Component({
-  selector: 'app-about',
-  standalone: true,
-  template: `
-    <div class="container py-5">
-      <h1 class="h2 mb-4">Sobre mí</h1>
+<div id="page-content" class="container py-5">
+      <h1 class="display-5 fw-bold mb-3">Sobre mí</h1>
+      <p class="lead text-body-secondary mb-4 max-w-3xl">
+        Desarrollador fullstack apasionado por crear soluciones tecnológicas robustas
+        y escalables con las mejores prácticas del mercado.
+      </p>
 
       <div class="row g-3">
         <div class="col-12 col-lg-6">
@@ -45,21 +38,3 @@ export interface SkillGroup {
         </div>
       </div>
     </div>
-  `
-})
-export class AboutComponent {
-  protected readonly skillGroups: readonly SkillGroup[] = [
-    {
-      title: 'Backend',
-      items: ['Spring Boot', 'Spring Security', 'JPA/Hibernate', 'REST APIs']
-    },
-    {
-      title: 'Frontend',
-      items: ['Angular', 'RxJS', 'TypeScript', 'SSR']
-    },
-    {
-      title: 'Data / DevOps',
-      items: ['PostgreSQL', 'Docker', 'CI/CD']
-    }
-  ];
-}

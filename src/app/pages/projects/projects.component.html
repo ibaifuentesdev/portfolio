@@ -1,0 +1,35 @@
+<div id="page-content" class="container py-5">
+      <h1 class="display-5 fw-bold mb-3">Proyectos</h1>
+      <p class="lead text-body-secondary mb-4 max-w-3xl">
+        Proyectos destacados que demuestran mis habilidades en desarrollo fullstack,
+        utilizando tecnologías modernas como Spring Boot, Angular y más.
+      </p>
+
+      <div class="row g-3">
+        @for (project of projects; track project.title) {
+          <div class="col-12 col-lg-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h2 class="h5 card-title mb-2">{{ project.title }}</h2>
+                <p class="card-text">{{ project.description }}</p>
+
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  @for (tech of project.technologies; track tech) {
+                    <span class="badge text-bg-secondary">{{ tech }}</span>
+                  }
+                </div>
+
+                <div class="d-flex gap-2">
+                  @if (project.link) {
+                    <a class="btn btn-primary btn-sm" href="{{ project.link }}" target="_blank">Demo</a>
+                  }
+                  @if (project.github) {
+                    <a class="btn btn-outline-primary btn-sm" href="{{ project.github }}" target="_blank">GitHub</a>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>

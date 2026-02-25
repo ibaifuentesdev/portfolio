@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { ThemeName, ThemeService } from './theme.service';
+import { ThemeName, ThemeService } from './shared/services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import { ThemeName, ThemeService } from './theme.service';
 })
 export class AppComponent {
   title = 'portfolio';
-
+  protected isMenuOpen = false;
   protected theme: ThemeName;
 
   public constructor(private readonly themeService: ThemeService) {
