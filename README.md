@@ -1,59 +1,198 @@
-# Portfolio
+# Portfolio Personal - Ibai Fuentes
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
+🚀 **Portfolio web moderno desarrollado con Angular 19+** que muestra mi experiencia profesional, proyectos y habilidades como desarrollador Fullstack.
 
-## Development server
+---
 
-To start a local development server, run:
+## ✨ Características Principales
 
-```bash
-ng serve
+### 🎨 **Diseño Premium**
+- **Theming dinámico**: Modo claro y oscuro con transiciones suaves
+- **Glassmorphism**: Efectos de blur y sombras sofisticadas
+- **Responsive design**: Adaptado perfectamente a móviles, tablets y desktop
+- **Animaciones fluidas**: Micro-interacciones y transiciones elegantes
+
+### 🛠️ **Tecnologías**
+- **Frontend**: Angular 19+, TypeScript, Bootstrap 5, SCSS
+- **Backend**: Spring Boot, Java, REST APIs
+- **Bases de datos**: PostgreSQL, MongoDB, MySQL
+- **DevOps**: Git, Docker, GitLab CI
+
+### 📱 **Secciones**
+- **Home**: Presentación con CTA y stack técnico
+- **Experiencia**: Trayectoria profesional detallada
+- **Proyectos**: Portfolio de proyectos destacados
+- **Sobre mí**: Información personal y habilidades
+- **Contacto**: Formulario y enlaces a redes sociales
+
+---
+
+## 🚀 Instalación y Ejecución
+
+### Prerrequisitos
+- Node.js 18+ 
+- Angular CLI 19+
+- Git
+
+### Pasos
+
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/ibaifuentesdev/portfolio.git
+   cd portfolio
+   ```
+
+2. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
+
+3. **Iniciar servidor de desarrollo**
+   ```bash
+   npm run start
+   ```
+   
+   La aplicación estará disponible en `http://localhost:4200/`
+
+4. **Construcción para producción**
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── app/
+│   ├── core/                 # Módulos principales
+│   ├── shared/              # Componentes y servicios compartidos
+│   │   ├── models/          # Interfaces y tipos
+│   │   ├── services/        # Servicios de datos
+│   │   └── components/     # Componentes reutilizables
+│   ├── pages/               # Páginas principales
+│   │   ├── home/           # Página principal
+│   │   ├── experience/     # Experiencia profesional
+│   │   ├── projects/       # Proyectos
+│   │   ├── about/          # Sobre mí
+│   │   └── contact/        # Contacto
+│   ├── app.component.*      # Componente raíz
+│   └── app.config.ts       # Configuración de la app
+├── assets/                # Imágenes, iconos, etc.
+├── styles/                # Estilos globales
+├── theme-light.scss        # Estilos tema claro
+├── theme-dark.scss         # Estilos tema oscuro
+└── main.ts               # Punto de entrada
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🎨 Personalización
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### **Colores y Temas**
+- **Modo claro**: Colores vibrantes con fondo animado
+- **Modo oscuro**: Estilo oscuro elegante con glassmorphism
+- **Variables SCSS**: Fácil personalización de colores
 
+### **Componentes**
+- **Standalone components**: Angular 19+ con componentes independientes
+- **Lazy loading**: Carga optimizada de módulos
+- **TypeScript strict**: Tipado completo y seguro
+
+---
+
+## 🧪 Testing
+
+### **Unit Tests**
 ```bash
-ng generate component component-name
+npm run test
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+### **E2E Tests**
 ```bash
-ng generate --help
+npm run e2e
 ```
 
-## Building
-
-To build the project run:
-
+### **Coverage**
 ```bash
-ng build
+npm run test:coverage
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## 📦 Build y Deploy
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
+### **Development Build**
 ```bash
-ng test
+npm run build:dev
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
+### **Production Build**
 ```bash
-ng e2e
+npm run build:prod
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### **Preview**
+```bash
+npm run preview
+```
 
-## Additional Resources
+### **Deploy automático**
+El proyecto está configurado para deploy automático en:
+- **GitHub Pages**: Para demo y showcase
+- **Vercel**: Para producción principal
+- **Netlify**: Como backup
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 🔧 Configuración
+
+### **Variables de Entorno**
+```bash
+# .env.local
+CONTACT_EMAIL=ibaifuentes.dev@gmail.com
+```
+
+### **Angular CLI**
+```bash
+# Generar nuevo componente
+ng generate component components/nuevo-componente
+
+# Generar servicio
+ng generate service services/nuevo-servicio
+
+# Build con optimización
+ng build --configuration production
+```
+
+---
+
+## 🌟 Características Técnicas
+
+### **Accesibilidad**
+- **ARIA labels**: Cumplimiento WCAG 2.1
+- **Keyboard navigation**: Navegación completa sin ratón
+- **Screen reader**: Compatibilidad con lectores de pantalla
+- **Semantic HTML**: HTML5 semántico correcto
+
+### **SEO**
+- **Meta tags**: Optimización para motores de búsqueda
+- **Open Graph**: Compartir en redes sociales
+- **Structured data**: Schema.org para mejor indexación
+- **Sitemap**: Generación automática
+
+
+
+
+---
+
+## 📞 Contacto
+
+- **Portfolio Online**: [https://ibaifuentes.dev](https://ibaifuentes.dev)
+- **LinkedIn**: [linkedin.com/in/ibai-fuentes-palacios](https://www.linkedin.com/in/ibai-fuentes-palacios-92b043208/)
+- **GitHub**: [github.com/ibaifuentesdev](https://github.com/ibaifuentesdev)
+- **Email**: ibaifuentes.dev@gmail.com
+
+---
+
