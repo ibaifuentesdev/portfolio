@@ -22,6 +22,10 @@ export interface ProjectItem {
   readonly github?: string;
   readonly image?: string;
   readonly featured?: boolean;
+  readonly stars?: number;
+  readonly forks?: number;
+  readonly language?: string;
+  readonly updatedAt?: string;
 }
 
 export interface ServiceItem {

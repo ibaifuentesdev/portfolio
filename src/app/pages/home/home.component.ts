@@ -1,24 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 import { ServiceItem, StatItem } from '../../shared/models';
 import { ExperienceTimelineComponent } from '../../shared/components/experience-timeline/experience-timeline.component';
+import { HomeService, HomeData } from '../../shared/services/home.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, ExperienceTimelineComponent],
+  imports: [RouterLink, ExperienceTimelineComponent, AsyncPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   protected readonly linkedinUrl = 'https://www.linkedin.com/in/ibai-fuentes-palacios-92b043208/';
   protected readonly githubUrl = 'https://github.com/ibaifuentesdev';
 
-  protected readonly stats: readonly StatItem[] = [
-    { value: '4', label: 'Empresas' },
-    { value: '3+', label: 'Años' },
-    { value: '15+', label: 'Tecnologías' }
-  ];
+  homeData$!: Observable<HomeData>;
 
   protected readonly primaryStack: readonly string[] = [
     'Spring Boot',
@@ -53,4 +52,10 @@ export class HomeComponent {
       stack: ['Spring Boot', 'Angular', 'Docker', 'GitLab CI', 'Linux']
     }
   ];
+
+  constructor(private homeService: HomeService) {}
+
+  ngOnInit(): void {
+    this.homeData$ = this.homeService.getHomeData();
+  }
 }

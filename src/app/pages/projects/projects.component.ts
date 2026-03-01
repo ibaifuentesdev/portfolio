@@ -1,13 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 import { ProjectItem } from '../../shared/models';
-import { PROJECTS_DATA } from '../../shared/services/projects-data.service';
+import { ProjectsDataService } from '../../shared/services/projects-data.service';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
+  imports: [AsyncPipe],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
-export class ProjectsComponent {
-  protected readonly projects: readonly ProjectItem[] = PROJECTS_DATA;
+export class ProjectsComponent implements OnInit {
+  projects$!: Observable<ProjectItem[]>;
+
+  constructor(private projectsDataService: ProjectsDataService) {}
+
+  ngOnInit(): void {
+    this.projects$ = this.projectsDataService.getProjectsData();
+  }
 }
