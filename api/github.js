@@ -1,6 +1,4 @@
 // API Route para Vercel - Proxy seguro a GitHub API
-import fetch from 'node-fetch';
-
 export default async function handler(req, res) {
   // Solo permitir método GET
   if (req.method !== 'GET') {
@@ -16,12 +14,25 @@ export default async function handler(req, res) {
     }
 
     // Construir URL de GitHub API
-    const githubUrl = `https://api.github.com${req.url.replace('/api/github', '')}`;
+    const path = req.url.replace('/api/github', '') || '/user/repos';
+    const githubUrl = `https://api.github.com${path}`;
     
-    console.log(`Proxying request to: ${githubUrl}`);
+    // Agregar parámetros por defecto si no existen
+    const url = new URL(githubUrl);
+    if (!url.searchParams.has('type')) {
+      url.searchParams.set('type', 'all');
+    }
+    if (!url.searchParams.has('sort')) {
+      url.searchParams.set('sort', 'updated');
+    }
+    if (!url.searchParams.has('per_page')) {
+      url.searchParams.set('per_page', '100');
+    }
+
+    console.log(`Proxying request to: ${url.toString()}`);
 
     // Hacer request a GitHub API con el token
-    const response = await fetch(githubUrl, {
+    const response = await fetch(url.toString(), {
       method: 'GET',
       headers: {
         'Authorization': `token ${token}`,
