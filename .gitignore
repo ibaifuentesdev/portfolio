@@ -259,3 +259,4 @@ ngsw.json
 yarn.lock
 pnpm-lock.yaml
 .vscode/
+vercel.json

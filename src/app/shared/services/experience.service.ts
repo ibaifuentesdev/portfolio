@@ -65,25 +65,6 @@ export class ExperienceService {
     },
     {
       isCurrent: false,
-      title: 'Desarrollador Fullstack',
-      company: 'LKS NEXT',
-      employmentType: 'Jornada completa',
-      location: 'Bilbao, País Vasco / Euskadi, España · Presencial',
-      period: 'oct. 2023 - feb. 2024',
-      startDate: '2023-10-01',
-      endDate: '2024-02-29',
-      description: 'Desarrollo de aplicaciones empresariales con Angular y Spring Boot para clientes del sector industrial y financiero. Enfoque en la creación de soluciones escalables y mantenibles siguiendo las mejores prácticas de desarrollo de software.',
-      highlights: [
-        'Desarrollo de aplicaciones SPA con Angular 15+',
-        'Creación de microservicios con Spring Boot',
-        'Implementación de pruebas unitarias y de integración',
-        'Optimización de rendimiento y accesibilidad web',
-        'Trabajo con metodologías ágiles en equipos multidisciplinarios'
-      ],
-      skills: ['Angular', 'Spring Boot', 'TypeScript', 'Java', 'PostgreSQL', 'REST APIs', 'Unit Testing', 'Jest', 'Cypress', 'Docker', 'Jenkins']
-    },
-    {
-      isCurrent: false,
       title: 'Desarrollador Web Junior',
       company: 'LKS NEXT',
       employmentType: 'Contrato en prácticas',
