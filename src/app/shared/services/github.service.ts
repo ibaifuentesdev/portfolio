@@ -24,18 +24,41 @@ export interface GitHubRepo {
 })
 export class GitHubService {
   private readonly apiUrl = 'https://api.github.com';
-  private readonly headers: HttpHeaders;
+  private readonly apiProxyUrl = '/api/github'; // API Route de Vercel
 
-  constructor(private http: HttpClient) {
-    this.headers = new HttpHeaders({
-      'Authorization': `token ${environment.githubToken}`,
+  constructor(private http: HttpClient) {}
+
+  private getHeaders(): HttpHeaders {
+    const token = environment.githubToken;
+    
+    if (!token) {
+      console.warn('GitHub token no configurado - usando modo sin autenticación');
+      return new HttpHeaders({
+        'Accept': 'application/vnd.github.v3+json'
+      });
+    }
+
+    return new HttpHeaders({
+      'Authorization': `token ${token}`,
       'Accept': 'application/vnd.github.v3+json'
     });
   }
 
   getAllRepos(): Observable<GitHubRepo[]> {
+    // En producción, usar API Route proxy para seguridad
+    if (environment.production) {
+      return this.http.get<GitHubRepo[]>(`${this.apiProxyUrl}/user/repos`, {
+        params: {
+          type: 'all',
+          sort: 'updated',
+          per_page: '100'
+        }
+      });
+    }
+
+    // En desarrollo, usar GitHub API directamente
     return this.http.get<GitHubRepo[]>(`${this.apiUrl}/user/repos`, { 
-      headers: this.headers,
+      headers: this.getHeaders(),
       params: {
         type: 'all',
         sort: 'updated',
@@ -45,14 +68,22 @@ export class GitHubService {
   }
 
   getRepoDetails(repoName: string): Observable<GitHubRepo> {
+    if (environment.production) {
+      return this.http.get<GitHubRepo>(`${this.apiProxyUrl}/repos/ibaifuentesdev/${repoName}`);
+    }
+    
     return this.http.get<GitHubRepo>(`${this.apiUrl}/repos/ibaifuentesdev/${repoName}`, {
-      headers: this.headers
+      headers: this.getHeaders()
     });
   }
 
   getRepoLanguages(repoName: string): Observable<Record<string, number>> {
+    if (environment.production) {
+      return this.http.get<Record<string, number>>(`${this.apiProxyUrl}/repos/ibaifuentesdev/${repoName}/languages`);
+    }
+    
     return this.http.get<Record<string, number>>(`${this.apiUrl}/repos/ibaifuentesdev/${repoName}/languages`, {
-      headers: this.headers
+      headers: this.getHeaders()
     });
   }
 
