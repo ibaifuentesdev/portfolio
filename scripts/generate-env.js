@@ -39,15 +39,15 @@ function generateEnvFile(targetPath, production) {
   fs.writeFileSync(targetPath, content);
 }
 
-// Generate both files to ensure consistency
+// Generate the environment file
 const envDir = path.join(__dirname, '..', 'src', 'environments');
 if (!fs.existsSync(envDir)) {
   fs.mkdirSync(envDir, { recursive: true });
 }
 
-generateEnvFile(path.join(envDir, 'environment.ts'), false);
-generateEnvFile(path.join(envDir, 'environment.prod.ts'), true);
+generateEnvFile(path.join(envDir, 'environment.ts'), isProduction);
 
-console.log(`✅ Environment files generated!`);
+console.log(`✅ Environment file generated!`);
 console.log(`🌍 VERCEL_ENV: ${VERCEL_ENV}`);
+console.log(`🧪 Is Production (build-time): ${isProduction}`);
 console.log(`🔑 GitHub Token: ${githubToken ? 'Configured' : 'Not configured (using proxy or unauthenticated)'}`);
