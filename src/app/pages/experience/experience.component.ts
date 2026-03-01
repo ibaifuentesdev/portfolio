@@ -122,7 +122,7 @@ export class ExperienceComponent implements OnInit {
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: 'Ibai Fuentes',
-      jobTitle: 'Full-stack Developer',
+      jobTitle: 'Desarrollador Fullstack',
       description: 'Desarrollador fullstack con más de 3 años de experiencia en Spring Boot, Angular, TypeScript y tecnologías modernas.',
       url: 'https://ibaifuentes.dev',
       knowsAbout: this.experience.flatMap(exp => exp.skills),

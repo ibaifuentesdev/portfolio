@@ -1,6 +1,6 @@
 <div id="page-content" class="container py-5">
       <!-- Header SEO optimizado -->
-      <header class="mb-5 text-center text-md-start">
+      <header class="mb-5  text-md-start">
         <h1 class="display-5 fw-bold mb-3">Experiencia Profesional</h1>
         <p class="lead text-body-secondary mb-4 max-w-3xl">
           Más de 3 años desarrollando soluciones tecnológicas para empresas, 
@@ -38,7 +38,7 @@
                 type="button"
                 class="btn btn-sm rounded-pill px-3 position-relative"
                 [class.btn-primary]="selectedSkill === skill"
-                [class.btn-outline-secondary]="selectedSkill !== skill"
+                [class.btn-outline-primary]="selectedSkill !== skill"
                 (click)="toggleSkillFilter(skill)"
                 [attr.aria-pressed]="selectedSkill === skill"
               >

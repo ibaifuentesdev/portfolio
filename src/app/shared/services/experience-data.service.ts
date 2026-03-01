@@ -39,7 +39,7 @@ export const EXPERIENCE_DATA: readonly ExperienceItem[] = [
   },
   {
     isCurrent: false,
-    title: 'Full-stack Developer',
+    title: 'Desarrollador Fullstack',
     company: 'Ven a Malta',
     employmentType: 'Contrato de prácticas',
     location: 'Malta · Presencial',

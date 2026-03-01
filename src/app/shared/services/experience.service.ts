@@ -8,7 +8,7 @@ export class ExperienceService {
   private readonly experienceData: readonly ExperienceItem[] = [
     {
       isCurrent: true,
-      title: 'Full-stack Developer',
+      title: 'Desarrollador Fullstack',
       company: 'ARSONDATA METERING SL',
       employmentType: 'Jornada completa',
       location: 'Bilbao, País Vasco / Euskadi, España · Presencial',
@@ -46,7 +46,7 @@ export class ExperienceService {
     },
     {
       isCurrent: false,
-      title: 'Full-stack Developer',
+      title: 'Desarrollador Fullstack',
       company: 'Ven a Malta',
       employmentType: 'Contrato de prácticas',
       location: 'Malta · Presencial',
