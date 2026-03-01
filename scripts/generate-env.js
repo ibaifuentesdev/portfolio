@@ -35,9 +35,13 @@ const VERCEL_ENV = process.env.VERCEL_ENV || 'development';
 const isProduction = VERCEL_ENV === 'production';
 
 // Variables to include in the environment files
-const githubToken = process.env.GITHUB_TOKEN;
+const githubToken = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
+const tokenSource = process.env.GITHUB_TOKEN ? 'GITHUB_TOKEN' : (process.env.GH_TOKEN ? 'GH_TOKEN' : 'none');
 
 function generateEnvFile(targetPath, production) {
+  // Use a string representation for logging to avoid exposing the token
+  const tokenDisplay = githubToken ? `${githubToken.substring(0, 4)}...${githubToken.substring(githubToken.length - 4)}` : 'undefined';
+
   const content = `export const environment = {
   production: ${production},
   vercelEnv: '${VERCEL_ENV}',
@@ -45,6 +49,11 @@ function generateEnvFile(targetPath, production) {
 };
 `;
   fs.writeFileSync(targetPath, content);
+
+  console.log(`📄 Generated: ${path.basename(targetPath)}`);
+  console.log(`   - Production: ${production}`);
+  console.log(`   - Token source: ${tokenSource}`);
+  console.log(`   - Token value: ${tokenDisplay}`);
 }
 
 // Generate the environment file
@@ -55,7 +64,5 @@ if (!fs.existsSync(envDir)) {
 
 generateEnvFile(path.join(envDir, 'environment.ts'), isProduction);
 
-console.log(`✅ Environment file generated!`);
-console.log(`🌍 VERCEL_ENV: ${VERCEL_ENV}`);
-console.log(`🧪 Is Production (build-time): ${isProduction}`);
-console.log(`🔑 GitHub Token: ${githubToken ? 'Configured' : 'Not configured (using proxy or unauthenticated)'}`);
+console.log(`\n✅ Environment configuration completed!`);
+console.log(`🌍 Vercel Context: ${VERCEL_ENV}`);
